@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [Header("References")]
+    public GameObject player;
     public Transform coreTarget;
     public Transform playerTarget;
     public Vector3 coreOffset;
@@ -40,6 +41,7 @@ public class CameraFollow : MonoBehaviour
     {
         if(FLAG)
         {
+            player.SetActive(true);
             Vector3 desiredPosition = playerTarget.position + playerOffset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
@@ -51,6 +53,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, coreZoomSize, ref ZoomSpeed, ZoomTime);
+            player.SetActive(false);
         }
     }
 

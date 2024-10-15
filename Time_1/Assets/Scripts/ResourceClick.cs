@@ -1,23 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ResourceClick : MonoBehaviour, IPointerClickHandler
 {
-    public TextMeshProUGUI contador;
-    private int n;
-    private void start()
+    private float n;
+    public float MaxValue = 10.0f;
+
+    private void Start()
     {
-        n = 0;
-        contador.text = n.ToString();
+        n = MaxValue;
     }
-    
+
+    private void FixedUpdate()
+    {
+        if(n <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Clickou");
-        n++;
-        contador.text = n.ToString();
+        n--;
+        BuildModeManager.Instance.increaseResourceX(1.0f);
     }
 }
