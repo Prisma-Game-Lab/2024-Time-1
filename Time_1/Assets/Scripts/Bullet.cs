@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     public float speed = 70f;
     public GameObject impactEffect;
+    public float damage = 25f;
 
     public void Seek(Transform _target) //Avisa quem a bala vai seguir
     {
@@ -37,6 +38,13 @@ public class Bullet : MonoBehaviour
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1f);
+
+        EnemyHealth enemy = target.GetComponent<EnemyHealth>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
         Destroy(gameObject);
     }
 }
