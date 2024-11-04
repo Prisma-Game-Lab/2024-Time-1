@@ -21,6 +21,11 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyDied();
+        }
         Destroy(gameObject); // Destroi o inimigo
     }
 }

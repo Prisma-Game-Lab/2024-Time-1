@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public int maxWaves = 10;
 
     private bool isPreparing = true;    // Indica se está na fase de preparação
+    private int activeEnemies = 0; // Contagem de inimigos ativos
 
     private void Start()
     {
@@ -58,15 +59,15 @@ public class EnemySpawner : MonoBehaviour
         while (currentWave < maxWaves)
         {
             waveCountdown = timeBetweenWaves;
-        yield return new WaitForSeconds(timeBetweenWaves);
-        
-        isPreparing = false;
-        StartCoroutine(SpawnWaveCoroutine());
+            yield return new WaitForSeconds(timeBetweenWaves);
+            
+            isPreparing = false;
+            StartCoroutine(SpawnWaveCoroutine());
 
-        yield return new WaitForSeconds(spawnRate * initialEnemyAmount);
-        isPreparing = true;
-        currentWave++;
-        initialEnemyAmount += 2; // aumenta a quantidade inicial de inimigos a cada wave
+            yield return new WaitUntil(() => activeEnemies <= 0);
+            isPreparing = true;
+            currentWave++;
+            initialEnemyAmount += 2; // aumenta a quantidade inicial de inimigos a cada wave
         }
         // Após completar todas as waves, encerra o jogo
         SceneManager.LoadScene("VictoryScene");
@@ -84,5 +85,10 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy() {
         GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation); // Spawn do inimigo
         enemy.GetComponent<EnemyMovement>().setTarget(enemyTarget);
+        activeEnemies++;
+    }
+
+    public void EnemyDied() {
+        activeEnemies--;
     }
 }
