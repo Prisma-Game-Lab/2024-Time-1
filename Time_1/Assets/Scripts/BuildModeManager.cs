@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +9,8 @@ public class BuildModeManager : MonoBehaviour
     [Header("References")]
     public TextMeshProUGUI ResourcePanel;
     public GameObject turretBuyPanel;
+    public GameObject mouseMask;
+
 
 
     [SerializeField]
@@ -19,6 +20,8 @@ public class BuildModeManager : MonoBehaviour
     private GameObject selectedTurret;
     private float selectedTurretCost;
     private Vector3 mouseposition;
+    private bool canPlaceTurret;
+    private bool canBuyTurret;
 
     private void Awake()
     {
@@ -40,6 +43,8 @@ public class BuildModeManager : MonoBehaviour
         BuildMode = false;
         selectedTurret = null;
         selectedTurretCost = float.PositiveInfinity;
+        canPlaceTurret = true;
+        canBuyTurret = false;
     }
 
     // Update is called once per frame
@@ -58,12 +63,32 @@ public class BuildModeManager : MonoBehaviour
             else
             {
                 turretBuyPanel.SetActive(false); //Desativa opcao de compra
+                mouseMask.SetActive(false);
+                isTurretSelected = false;
+                selectedTurretCost = float.PositiveInfinity;
+                selectedTurret = null;
             }
         }
 
-        if(Input.GetMouseButtonDown(0) && isTurretSelected)
-        {
+        if (!BuildMode) //Daqui pra baixo somente build mode 
+            return;
 
+        if (selectedTurretCost > resourceX)
+            canBuyTurret = false;
+        else
+            canBuyTurret = true;
+
+        if (Input.GetMouseButtonDown(0) && isTurretSelected) //Cancela a construcao 
+        {
+            isTurretSelected = false;
+            mouseMask.gameObject.SetActive(false);
+            selectedTurretCost = float.PositiveInfinity;
+            selectedTurret = null;
+        }
+            
+
+        if(Input.GetMouseButtonDown(1) && isTurretSelected) //Tenta colocar torreta
+        {
             if (Camera.main == null)
             {
                 Debug.LogError("Nenhuma câmera principal encontrada.");
@@ -76,14 +101,16 @@ public class BuildModeManager : MonoBehaviour
                 Debug.LogError("Nenhuma torre selecionada para instanciar.");
                 return;
             }
-
-            mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseposition.z = 2.0f;
-            Instantiate(selectedTurret, mouseposition, Quaternion.identity);
-            resourceX -= selectedTurretCost;
-            selectedTurretCost = float.PositiveInfinity;
-            isTurretSelected=false;
-            selectedTurret = null;
+               
+            if(canPlaceTurret && canBuyTurret)
+            {
+                mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mouseposition.z = 2.0f;
+                Instantiate(selectedTurret, mouseposition, Quaternion.identity);
+                resourceX -= selectedTurretCost;
+                if (selectedTurretCost > resourceX)
+                    canPlaceTurret = false;
+            }
         }
     }
 
@@ -109,6 +136,17 @@ public class BuildModeManager : MonoBehaviour
         selectedTurret = turret;
         selectedTurretCost = cost;
         isTurretSelected = true;
+        mouseMask.gameObject.SetActive(true);
+        mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = turret.gameObject.GetComponent<SpriteRenderer>().sprite;
+        mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
     }
 
+    public void CanPlaceTurret(bool b)
+    {
+        canPlaceTurret = b;
+        if (b)
+            mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+        else
+            mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.2f, 0.2f, 0.8f);
+    }
 }
