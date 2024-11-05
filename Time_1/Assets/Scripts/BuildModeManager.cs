@@ -78,7 +78,7 @@ public class BuildModeManager : MonoBehaviour
         else
             canBuyTurret = true;
 
-        if (Input.GetMouseButtonDown(0) && isTurretSelected) //Cancela a construcao 
+        if (Input.GetMouseButtonDown(1) && isTurretSelected) //Cancela a construcao 
         {
             isTurretSelected = false;
             mouseMask.gameObject.SetActive(false);
@@ -87,7 +87,7 @@ public class BuildModeManager : MonoBehaviour
         }
             
 
-        if(Input.GetMouseButtonDown(1) && isTurretSelected) //Tenta colocar torreta
+        if(Input.GetMouseButtonDown(0) && isTurretSelected) //Tenta colocar torreta
         {
             if (Camera.main == null)
             {
