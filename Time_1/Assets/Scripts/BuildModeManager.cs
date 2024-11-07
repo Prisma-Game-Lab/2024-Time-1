@@ -10,6 +10,7 @@ public class BuildModeManager : MonoBehaviour
     public TextMeshProUGUI ResourcePanel;
     public GameObject turretBuyPanel;
     public GameObject mouseMask;
+    public GameObject minimap;
 
 
 
@@ -59,11 +60,13 @@ public class BuildModeManager : MonoBehaviour
             if (BuildMode) //Esta no modo de construcao
             {
                 turretBuyPanel.SetActive(true); //Ativa opcao de compra
+                minimap.SetActive(false);
             }
             else
             {
                 turretBuyPanel.SetActive(false); //Desativa opcao de compra
                 mouseMask.SetActive(false);
+                minimap.SetActive(true);
                 isTurretSelected = false;
                 selectedTurretCost = float.PositiveInfinity;
                 selectedTurret = null;
