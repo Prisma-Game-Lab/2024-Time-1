@@ -5,90 +5,132 @@ using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab; // Referência ao prefab do inimigo (hexagono)
-    public Transform spawnPoint; // Ponto de spawn do inimigo
+    public Transform[] spawnPoints; // Ponto de spawn do inimigo
     public Transform enemyTarget;
-
     public TextMeshProUGUI wavesCountdownText; // Exibe cronômetro de preparação e waves
     
     public float timeBetweenWaves = 15f; // Tempo entre waves
-    private float waveCountdown; // Contagem regressiva para waves  
+    public float waveCountdown; // Contagem regressiva para waves  
+    private float searchCountdown = 1f;
 
-    public float spawnRate = 1f; // Intervalo de spawn do inimigo
-    public int initialEnemyAmount = 3;
-    //private float spawnCountdown; // Contagem regressiva para o spawn do inimigo
-    private int currentWave = 0;
-    public int maxWaves = 10;
+    
+    public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
-    private bool isPreparing = true;    // Indica se está na fase de preparação
-    private int activeEnemies = 0; // Contagem de inimigos ativos
+    [System.Serializable]
+    public class Wave
+    {
+        public string name;
+        public Transform enemy;
+        public int count;
+        public float rate;
+    }
+
+    public Wave[] waves;
+    private int nextWave = 0;
+
+    public SpawnState state = SpawnState.COUNTING;
+
+    //private bool isPreparing = true;    // Indica se está na fase de preparação
+    //private int activeEnemies = 0; // Contagem de inimigos ativos
 
     private void Start()
     {
         waveCountdown = timeBetweenWaves;
-        StartCoroutine(PreparationPhase());
+        UpdateCountdownText();
     }
 
     void Update()
     {
-        // spawnCountdown += Time.deltaTime;
-        // if (spawnCountdown >= spawnRate) {
-        //     StartCoroutine(SpawnWaveCoroutine());// Spawn do inimigo
-        //     spawnCountdown = 0f; // reinicia o contador
-        //     contagem++;
-        // }
-
-        // if(contagem >= maxWaves)
-        // {
-        //     SceneManager.LoadScene("VictoryScene");
-        // }
-        if (isPreparing)
+        if (state == SpawnState.WAITING)
         {
-            waveCountdown -= Time.deltaTime;
-            wavesCountdownText.text = "Prepare-se: " + Mathf.Round(waveCountdown).ToString();
-            if (waveCountdown <= 0f)
+            if (!EnemyIsAlive())
             {
-                isPreparing = false;
-                StartCoroutine(SpawnWaveCoroutine());
+                WaveCompleted();
+            }
+            else
+            {
+                return;
             }
         }
-    }
 
-    private IEnumerator PreparationPhase()
-    {
-        while (currentWave < maxWaves)
+        if (state == SpawnState.COUNTING)
         {
+            if (waveCountdown <= 0f)
+            {
+                StartCoroutine(SpawnWaveCoroutine(waves[nextWave]));
+            }
+            else
+            {
+                waveCountdown -= Time.deltaTime;
+                UpdateCountdownText();
+            }
+        }
+        
+
+        void WaveCompleted()
+        {
+            Debug.Log("Wave Completed");
+            state = SpawnState.COUNTING;
             waveCountdown = timeBetweenWaves;
-            yield return new WaitForSeconds(timeBetweenWaves);
-            
-            isPreparing = false;
-            StartCoroutine(SpawnWaveCoroutine());
 
-            yield return new WaitUntil(() => activeEnemies <= 0);
-            isPreparing = true;
-            currentWave++;
-            initialEnemyAmount += 2; // aumenta a quantidade inicial de inimigos a cada wave
+            if (nextWave + 1 > waves.Length - 1)
+            {
+                nextWave = 0;
+                Debug.Log("All Waves Completed");
+                SceneManager.LoadScene("VictoryScene");
+            }
+            else
+            {
+                nextWave++;
+                UpdateCountdownText();
+            }
         }
-        // Após completar todas as waves, encerra o jogo
-        SceneManager.LoadScene("VictoryScene");
-    }
 
-    private IEnumerator SpawnWaveCoroutine()
-    {
-        wavesCountdownText.text = "Wave: " + (currentWave + 1).ToString();
-        for (int i = 0; i < initialEnemyAmount; i++)
+        bool EnemyIsAlive()
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(spawnRate);
+            searchCountdown -= Time.deltaTime;
+            if (searchCountdown <= 0f)
+            {
+                searchCountdown = 1f;
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                return false;
+                }
+            }
+            return true;
         }
     }
-    void SpawnEnemy() {
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation); // Spawn do inimigo
-        enemy.GetComponent<EnemyMovement>().setTarget(enemyTarget);
-        activeEnemies++;
+
+    IEnumerator SpawnWaveCoroutine(Wave _wave)
+    {
+        Debug.Log("Spawning Wave: " + _wave.name);
+        state = SpawnState.SPAWNING;
+        wavesCountdownText.text = "Wave: " + (nextWave + 1).ToString(); // Exibe a wave atual
+
+        for (int i = 0; i < _wave.count; i++)
+        {
+            SpawnEnemy(_wave.enemy);
+            yield return new WaitForSeconds(1f / _wave.rate);
+        }
+
+        state = SpawnState.WAITING;
+        yield break;
     }
 
-    public void EnemyDied() {
-        activeEnemies--;
+    void SpawnEnemy(Transform _enemy) {
+        // Seleciona um ponto de spawn aleatório da lista
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        
+        // Instancia o inimigo no ponto de spawn selecionado
+        GameObject enemyInstance = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation).gameObject;
+        
+        // Define o alvo do inimigo
+        enemyInstance.GetComponent<EnemyMovement>().setTarget(enemyTarget);
+    }
+
+    void UpdateCountdownText()
+    {
+        if(state == SpawnState.COUNTING)
+            wavesCountdownText.text = "Prepare-se: " + Mathf.Round(waveCountdown).ToString() + "s";
     }
 }
