@@ -11,6 +11,7 @@ public class BuildModeManager : MonoBehaviour
     public GameObject turretBuyPanel;
     public GameObject mouseMask;
     public GameObject minimap;
+    public Sprite temporaryMask;
 
 
 
@@ -140,7 +141,12 @@ public class BuildModeManager : MonoBehaviour
         selectedTurretCost = cost;
         isTurretSelected = true;
         mouseMask.gameObject.SetActive(true);
-        mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = turret.gameObject.GetComponent<SpriteRenderer>().sprite;
+        
+        //mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = turret.gameObject.GetComponent<SpriteRenderer>().sprite;
+        //Retornar o sprite da turret selecionada quando tiver o sprite todo
+        mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = temporaryMask;
+
+
         mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
     }
 

@@ -14,6 +14,7 @@ public class ExampleClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private void Start()
     {
         startPosition = transform.position;
+        transform.position = SwapPosition;
         canSwap = false;
         SwapPosition = SwapPositionTransform.position;
         elapsedTime = 0;
