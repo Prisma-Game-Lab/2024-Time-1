@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "Time_1"
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "Time_1.sln"
+	}
+}
