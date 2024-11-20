@@ -10,6 +10,8 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI contentField;
     public LayoutElement layoutElement;
     public RectTransform rectTransform;
+    public GameObject resourceSlots;
+    public GameObject slotPrefab;
 
     public int characterWrapLimit;
 
@@ -17,7 +19,7 @@ public class Tooltip : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
     }
-    public void SetText(string content, string header = "")
+    public void SetData(string content, TurretData data, string header = "")
     {
         if(string.IsNullOrEmpty(header))
         {
@@ -29,6 +31,18 @@ public class Tooltip : MonoBehaviour
             headerField.text = header; 
         }
 
+        if(data != null)
+        {
+            if(data.requiredEletronic > 0)
+            {
+                GameObject newSlot = Instantiate(slotPrefab,resourceSlots.transform);
+                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceX(), data.requiredEletronic);
+
+                newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
+                newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[0];
+            }
+
+        }
         contentField.text = content;
         
         int headerLength = headerField.text.Length;
@@ -45,6 +59,10 @@ public class Tooltip : MonoBehaviour
 
     public void HideTooltip()
     {
+        foreach(Transform child in resourceSlots.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         gameObject.SetActive(false);
     }
 

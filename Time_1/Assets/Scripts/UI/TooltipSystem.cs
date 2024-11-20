@@ -12,9 +12,9 @@ public class TooltipSystem : MonoBehaviour
         current = this;
     }
 
-    public static void Show(string content, string header = "")
+    public static void Show(string content, TurretData data, string header = "")
     {
-        current.tooltip.SetText(content, header);
+        current.tooltip.SetData(content, data, header);
         current.tooltip.ShowTooltip();
     }
 

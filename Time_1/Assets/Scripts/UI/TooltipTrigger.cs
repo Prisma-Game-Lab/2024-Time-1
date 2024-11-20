@@ -9,6 +9,8 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [Multiline()]
     public string content;
 
+    public TurretData data;
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -24,6 +26,6 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private IEnumerator waitToShow(float delay)
     {
         yield return new WaitForSeconds(delay);
-        TooltipSystem.Show(content, header);
+        TooltipSystem.Show(content, data, header);
     }
 }
