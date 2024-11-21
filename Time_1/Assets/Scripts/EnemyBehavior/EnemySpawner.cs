@@ -6,6 +6,10 @@ using TMPro;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints; // Ponto de spawn do inimigo
+    public GameObject arrowPrefab; // Prefab da seta direcional
+    public Transform canvasTransform; // Transform do Canvas para os elementos da interface
+
+
     public Transform enemyTarget;
     public TextMeshProUGUI wavesCountdownText; // Exibe cronômetro de preparação e waves
     
@@ -117,20 +121,29 @@ public class EnemySpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy) {
-        // Seleciona um ponto de spawn aleatório da lista
+    void SpawnEnemy(Transform _enemy)
+    {
+        // Seleciona um ponto de spawn aleatório
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        
-        // Instancia o inimigo no ponto de spawn selecionado
+
+        // Instancia o inimigo no ponto de spawn
         GameObject enemyInstance = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation).gameObject;
-        
+
         // Define o alvo do inimigo
         enemyInstance.GetComponent<EnemyMovement>().setTarget(enemyTarget);
-    }
 
+        // Instancia a seta
+        GameObject arrow = Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity, canvasTransform);
+
+        // Configura a seta para apontar para o inimigo
+        DirectionalArrow arrowScript = arrow.GetComponent<DirectionalArrow>();
+        arrowScript.target = enemyInstance.transform; // Configura o inimigo como o alvo da seta
+        arrowScript.mainCamera = Camera.main; // Atribui a câmera principal diretamente
+    }
     void UpdateCountdownText()
     {
         if(state == SpawnState.COUNTING)
             wavesCountdownText.text = "Prepare-se: " + Mathf.Round(waveCountdown).ToString() + "s";
     }
+
 }

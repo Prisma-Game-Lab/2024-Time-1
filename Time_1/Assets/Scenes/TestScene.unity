@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Ola
   content: Teste
+  data: {fileID: 0}
 --- !u!114 &43325378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +324,8 @@ MonoBehaviour:
   contentField: {fileID: 916873813}
   layoutElement: {fileID: 92664375}
   rectTransform: {fileID: 92664373}
+  resourceSlots: {fileID: 0}
+  slotPrefab: {fileID: 0}
   characterWrapLimit: 50
 --- !u!114 &92664375
 MonoBehaviour:
@@ -1562,6 +1565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Minimapa
   content: Da pra ver legal
+  data: {fileID: 0}
 --- !u!1 &1017316105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   header: Torreta Base
   content: 'bla bla bla pow pow pow '
+  data: {fileID: 0}
 --- !u!1 &1284972795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,6 +2757,8 @@ MonoBehaviour:
   - {fileID: 1540551396}
   - {fileID: 920014897}
   - {fileID: 498613194}
+  arrowPrefab: {fileID: 2288046240305350666, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+  canvasTransform: {fileID: 1017316109}
   enemyTarget: {fileID: 1755635701}
   wavesCountdownText: {fileID: 1699914047}
   timeBetweenWaves: 15
@@ -2860,6 +2867,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617379183}
   m_CullTransparentMesh: 1
+--- !u!1001 &1639313640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.27805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605235443118449947, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288046240305350666, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
+      propertyPath: m_Name
+      value: setinha wave
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c66a98c251ae144284ff5038be4ed83, type: 3}
 --- !u!1 &1652507003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4683,3 +4755,4 @@ SceneRoots:
   - {fileID: 147140366}
   - {fileID: 1655639438}
   - {fileID: 638067382}
+  - {fileID: 1639313640}
