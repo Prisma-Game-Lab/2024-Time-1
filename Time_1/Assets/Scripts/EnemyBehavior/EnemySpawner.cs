@@ -6,14 +6,16 @@ using TMPro;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints; // Ponto de spawn do inimigo
-    public Transform enemyTarget;
+    public Transform enemyTarget;   // Alvo dos inimigos
     public TextMeshProUGUI wavesCountdownText; // Exibe cronômetro de preparação e waves
-    
+
+    // Adicione esta linha para criar uma referência ao script RosaDosVentos
+    public RosaDosVentos rosaDosVentos;
+
     public float timeBetweenWaves = 15f; // Tempo entre waves
-    public float waveCountdown; // Contagem regressiva para waves  
+    public float waveCountdown;         // Contagem regressiva para waves  
     private float searchCountdown = 1f;
 
-    
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     [System.Serializable]
@@ -29,9 +31,6 @@ public class EnemySpawner : MonoBehaviour
     private int nextWave = 0;
 
     public SpawnState state = SpawnState.COUNTING;
-
-    //private bool isPreparing = true;    // Indica se está na fase de preparação
-    //private int activeEnemies = 0; // Contagem de inimigos ativos
 
     private void Start()
     {
@@ -66,7 +65,6 @@ public class EnemySpawner : MonoBehaviour
                 UpdateCountdownText();
             }
         }
-        
 
         void WaveCompleted()
         {
@@ -96,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
                 searchCountdown = 1f;
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
-                return false;
+                    return false;
                 }
             }
             return true;
@@ -119,20 +117,34 @@ public class EnemySpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy) {
-        // Seleciona um ponto de spawn aleatório da lista
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        
-        // Instancia o inimigo no ponto de spawn selecionado
+    void SpawnEnemy(Transform _enemy)
+    {
+        // Seleciona um ponto de spawn aleatório
+        int spawnIndex = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[spawnIndex];
+
+        // Instancia o inimigo no ponto de spawn
         GameObject enemyInstance = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation).gameObject;
-        
+
         // Define o alvo do inimigo
         enemyInstance.GetComponent<EnemyMovement>().setTarget(enemyTarget);
+
+        // Atualiza a direção ativa na rosa dos ventos
+        if (rosaDosVentos != null)
+        {
+            rosaDosVentos.AtualizarDirecaoAtiva(spawnIndex);
+        }
+        else
+        {
+            Debug.LogWarning("RosaDosVentos não está configurada no EnemySpawner.");
+        }
     }
 
     void UpdateCountdownText()
     {
-        if(state == SpawnState.COUNTING)
+        if (state == SpawnState.COUNTING)
             wavesCountdownText.text = "Prepare-se: " + Mathf.Round(waveCountdown).ToString() + "s";
     }
+
+
 }
