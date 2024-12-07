@@ -2676,7 +2676,6 @@ Transform:
   - {fileID: 632427338}
   - {fileID: 1835410860}
   - {fileID: 709802576}
-  - {fileID: 376955000}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355053283
@@ -3938,7 +3937,6 @@ MonoBehaviour:
   - {fileID: 632427338}
   - {fileID: 1835410860}
   - {fileID: 709802576}
-  - {fileID: 376955000}
   eletronicPrefab: {fileID: 3462557541770670412, guid: e2cf5cdcd740ee9419aec2278a5c4731, type: 3}
   metalPrefab: {fileID: 3462557541770670412, guid: 372a5badb7d27da499e1ee70719e7f6d, type: 3}
   prismPrefab: {fileID: 3462557541770670412, guid: 108c2f1e4ed2bb142b7d8b5695dbf879, type: 3}
@@ -4369,7 +4367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2110863107}
   - component: {fileID: 2110863108}
-  - component: {fileID: 2110863109}
   m_Layer: 5
   m_Name: Resources
   m_TagString: Untagged
