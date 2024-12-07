@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        ResourceSpawn.Instance.SpawnResources(nextWave);
         waveCountdown = timeBetweenWaves;
         UpdateCountdownText();
     }
@@ -82,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 nextWave++;
+                ResourceSpawn.Instance.SpawnResources(nextWave);
                 UpdateCountdownText();
             }
         }
