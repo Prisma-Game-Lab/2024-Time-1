@@ -15,11 +15,15 @@ public class BuildModeManager : MonoBehaviour
 
 
     [SerializeField]
-    private float resourceX;
+    private float eletronicAmount;
+    private float metalAmount;
+    private float prismAmount;
+    private float uraniumAmount;
+
     private bool isTurretSelected;
     private bool BuildMode; //Flag para verificar se está no modo de construcao
     private GameObject selectedTurret;
-    private float selectedTurretCost;
+    private TurretData selectedTurretCosts;
     private Vector3 mouseposition;
     private bool canPlaceTurret;
     private bool canBuyTurret;
@@ -39,11 +43,13 @@ public class BuildModeManager : MonoBehaviour
 
     private void Start()
     {
-        resourceX = 0.0f;
+        prismAmount = 0.0f;
+        uraniumAmount = 0.0f;
+        eletronicAmount = 0.0f;
+        metalAmount = 0.0f;
         isTurretSelected = false;
         BuildMode = false;
         selectedTurret = null;
-        selectedTurretCost = float.PositiveInfinity;
         canPlaceTurret = true;
         canBuyTurret = false;
     }
@@ -51,7 +57,7 @@ public class BuildModeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ResourcePanel.text = resourceX.ToString();
+        //ResourcePanel.text = resourceX.ToString();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -68,7 +74,7 @@ public class BuildModeManager : MonoBehaviour
                 mouseMask.SetActive(false);
                 minimap.SetActive(true);
                 isTurretSelected = false;
-                selectedTurretCost = float.PositiveInfinity;
+                selectedTurretCosts = null;
                 selectedTurret = null;
             }
         }
@@ -76,16 +82,16 @@ public class BuildModeManager : MonoBehaviour
         if (!BuildMode) //Daqui pra baixo somente build mode 
             return;
 
-        if (selectedTurretCost > resourceX)
-            canBuyTurret = false;
-        else
+        if (canBuy(selectedTurretCosts))
             canBuyTurret = true;
+        else
+            canBuyTurret = false;
 
         if (Input.GetMouseButtonDown(1) && isTurretSelected) //Cancela a construcao 
         {
             isTurretSelected = false;
             mouseMask.gameObject.SetActive(false);
-            selectedTurretCost = float.PositiveInfinity;
+            selectedTurretCosts = null;
             selectedTurret = null;
         }
             
@@ -110,34 +116,77 @@ public class BuildModeManager : MonoBehaviour
                 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mouseposition.z = 2.0f;
                 Instantiate(selectedTurret, mouseposition, Quaternion.identity);
-                resourceX -= selectedTurretCost;
-                if (selectedTurretCost > resourceX)
+                discountAmounts(selectedTurretCosts);
+                if (!canBuy(selectedTurretCosts))
                     canPlaceTurret = false;
             }
         }
     }
 
-    public float getResourceX()
+    public bool canBuy(TurretData data)
     {
-        return resourceX;
-    }
-    public void increaseResourceX(float n)
-    {
-        resourceX += n;
+        if(data == null)
+            return false;
+        if(data.requiredEletronic > eletronicAmount)
+            return false;
+        if (data.requiredMetal > metalAmount)
+            return false;
+        if (data.requiredPrism > prismAmount)
+            return false;
+        if (data.requiredUranium > uraniumAmount)
+            return false;
+
+        return true;    
     }
 
-    public void decreaseResourceX(float n)
+    public void discountAmounts(TurretData data)
     {
-        if(resourceX-n >= 0)
+        if (data != null)
         {
-            resourceX -= n;
+            eletronicAmount -= data.requiredEletronic;
+            metalAmount -= data.requiredMetal;
+            prismAmount -= data.requiredPrism;
+            uraniumAmount -= data.requiredUranium;
         }
     }
 
-    public void setSelectedTurret(GameObject turret, float cost)
+    public float getResourceEletronic()
     {
+        return eletronicAmount;
+    }
+
+    public float getResourceMetal()
+    {
+        return metalAmount;
+    }
+
+    public float getResourcePrism()
+    {
+        return prismAmount;
+    }
+
+    public float getResourceUranium()
+    {
+        return uraniumAmount;
+    }
+
+    public void increaseResources(ResourceData data)
+    {
+        if (data.eletronicAmount > 0)
+            eletronicAmount++;
+        else if(data.metalAmount > 0)
+            metalAmount++;
+        else if(data.prismAmount > 0)
+            prismAmount++;
+        else if(data.uraniumAmount > 0)
+            uraniumAmount++;
+    }
+
+    public void setSelectedTurret(GameObject turret, TurretData data)
+    {
+        Debug.Log("SelectedTurret");
         selectedTurret = turret;
-        selectedTurretCost = cost;
+        selectedTurretCosts = data;
         isTurretSelected = true;
         mouseMask.gameObject.SetActive(true);
         

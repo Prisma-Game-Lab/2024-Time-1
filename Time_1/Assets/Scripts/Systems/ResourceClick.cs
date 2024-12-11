@@ -3,17 +3,24 @@ using UnityEngine.EventSystems;
 
 public class ResourceClick : MonoBehaviour, IPointerClickHandler
 {
-    private float n;
-    public float MaxValue = 10.0f;
+    private float maxClicks;
+    public ResourceData data;
 
     private void Start()
     {
-        n = MaxValue;
+        if(data.metalAmount > 0)
+            maxClicks = data.metalAmount;
+        if (data.eletronicAmount > 0)
+            maxClicks = data.eletronicAmount;
+        if(data.prismAmount > 0)
+            maxClicks = data.prismAmount;
+        if (data.uraniumAmount > 0)
+            maxClicks = data.uraniumAmount;
     }
 
     private void FixedUpdate()
     {
-        if(n <= 0)
+        if(maxClicks <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -21,8 +28,7 @@ public class ResourceClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Clickou");
-        n--;
-        BuildModeManager.Instance.increaseResourceX(1.0f);
+        maxClicks--;
+        BuildModeManager.Instance.increaseResources(data);
     }
 }

@@ -36,10 +36,34 @@ public class Tooltip : MonoBehaviour
             if(data.requiredEletronic > 0)
             {
                 GameObject newSlot = Instantiate(slotPrefab,resourceSlots.transform);
-                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceX(), data.requiredEletronic);
+                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceEletronic(), data.requiredEletronic);
 
                 newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
                 newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[0];
+            }
+            else if (data.requiredMetal > 0)
+            {
+                GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
+                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceMetal(), data.requiredMetal);
+
+                newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
+                newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[1];
+            }
+            else if (data.requiredPrism > 0)
+            {
+                GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
+                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourcePrism(), data.requiredPrism);
+
+                newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
+                newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[2];
+            }
+            else if (data.requiredUranium > 0)
+            {
+                GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
+                string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceUranium(), data.requiredUranium);
+
+                newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
+                newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[3];
             }
 
         }

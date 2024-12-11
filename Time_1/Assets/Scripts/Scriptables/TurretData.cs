@@ -6,7 +6,7 @@ using UnityEngine;
 public class TurretData : ScriptableObject
 {
     public int requiredEletronic = 0;
-    public int requiredIron = 0;
+    public int requiredMetal = 0;
     public int requiredPrism = 0;
     public int requiredUranium = 0;
 

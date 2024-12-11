@@ -3,12 +3,13 @@ using UnityEngine;
 public class TurretSelect : MonoBehaviour
 {
     public GameObject turret;
-    public float cost;
+    public TurretData data;
     public void turretSelect()
     {
-        if (BuildModeManager.Instance.getResourceX() >= cost)
+        if (BuildModeManager.Instance.canBuy(data))
         {
-            BuildModeManager.Instance.setSelectedTurret(turret, cost);
+            Debug.Log("CanBuy");
+            BuildModeManager.Instance.setSelectedTurret(turret, data);
         }
     }
 }
