@@ -132,7 +132,7 @@ public class EnemySpawner : MonoBehaviour
         // Atualiza a direção ativa na rosa dos ventos
         if (rosaDosVentos != null)
         {
-            rosaDosVentos.AtualizarDirecaoAtiva(spawnIndex);
+            rosaDosVentos.DirecaoInimigo(spawnIndex);
         }
         else
         {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections; // Necessário para usar corrotinas
 
 public class RosaDosVentos : MonoBehaviour
 {
@@ -7,26 +8,30 @@ public class RosaDosVentos : MonoBehaviour
     public class Direcao
     {
         public string Nome;          // Nome da direção
-        public SpriteRenderer Seta;  // Sprite da seta
+        public Image Seta;  // Sprite da seta
     }
 
     public Direcao[] Direcoes; // Lista de direções e suas setas
-    public Color CorAtiva = new Color(1f, 0.1f, 0.1f); // Cor para direção ativa (vermelho)
-    public Color CorPadrao = new Color(0.1f, 1f, 0.4f); // Cor padrão (verde)
+    public Color CorAtiva;
+    public Color CorPadrao;
+    public float pisca = 10f;
 
     private void Start()
     {
+        Debug.Log("Iniciando RosaDosVentos");
         ResetarSetas();
+        
     }
 
-    // Atualiza a seta da direção ativa
-    public void AtualizarDirecaoAtiva(int index)
+    // Atualiza a direção ativa, fazendo a seta piscar
+    public void DirecaoInimigo(int index)
     {
-        ResetarSetas();
-
         if (index >= 0 && index < Direcoes.Length)
         {
-            Direcoes[index].Seta.color = CorAtiva; // Define a cor ativa
+            Debug.Log("Inimigo vindo da direção: " + Direcoes[index].Nome);
+
+            // Inicia a corrotina para a direção correspondente
+            StartCoroutine(PiscarSeta(Direcoes[index]));
         }
         else
         {
@@ -34,9 +39,32 @@ public class RosaDosVentos : MonoBehaviour
         }
     }
 
+    // Corrotina para piscar a seta
+    private IEnumerator PiscarSeta(Direcao direcao)
+    {
+        float tempoDecorrido = 0f;
+        bool corAtiva = false;
+
+        while (tempoDecorrido < pisca)
+        {
+            // Alterna entre a cor ativa e a cor padrão
+            direcao.Seta.color = corAtiva ? CorAtiva : CorPadrao;
+            corAtiva = !corAtiva;
+
+            // Espera 0.5 segundos antes de alternar a cor novamente
+            yield return new WaitForSeconds(0.5f);
+
+            tempoDecorrido += 0.5f;
+        }
+
+        // Após o tempo de piscagem, reseta a seta para a cor padrão
+        direcao.Seta.color = CorPadrao;
+    }
+
     // Reseta todas as setas para a cor padrão
     public void ResetarSetas()
     {
+        Debug.Log("Resetando setas para cor padrão");
         foreach (var direcao in Direcoes)
         {
             direcao.Seta.color = CorPadrao;
