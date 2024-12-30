@@ -5,20 +5,29 @@ using UnityEngine;
 public class TurretBehavior : MonoBehaviour
 {
 
-    [Header("Atributos")]
+    [Header("Atributos Gerais")]
     public float range = 15f;
     public string enemyTag = "Enemy";
-    public float fireRate = 1f;
-    private float fireCountdown = 0f;
     public float rotationModifier;
     public float rotationSpeed;
+
+    [Header("Usar Balas (Torreta Default)")]
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+    public GameObject bullet;
+
+
+    [Header("Usar Laser (Torreta Laser)")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
 
     [Header("Referencias")]
     public Transform Head;
     public Transform partToRotate;
     public Transform target;
-    public GameObject bullet;
     public Transform FirePoint;
+    public SpriteRenderer TurretSprite;
+
 
     [Header("Sprites")]
     public Sprite[] sprites;
@@ -31,24 +40,57 @@ public class TurretBehavior : MonoBehaviour
     private void Update()
     {
         if(target == null)
-            return;
+        {
+            if(useLaser)
+            {
+                if(lineRenderer.enabled)
+                    lineRenderer.enabled = false;   
+            }
 
+            return;
+        }
+
+        //LockOnTarget();
         Vector3 dir = target.position - Head.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - rotationModifier;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         partToRotate.rotation = Quaternion.Slerp(partToRotate.rotation, rotation, Time.deltaTime * rotationSpeed);
-        Debug.Log(Mathf.Abs(angle));
         changeSprite(Mathf.Abs(angle));
 
-        if(fireCountdown <= 0f)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
 
-        fireCountdown -= Time.deltaTime;
+        if (useLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            if(fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+
+            fireCountdown -= Time.deltaTime;
+        }
     }
 
+
+
+    void LockOnTarget()
+    {
+        
+    }
+
+
+    void Laser()
+    {
+        if(!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+        
+
+        lineRenderer.SetPosition(0, FirePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+    }
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bullet, FirePoint.position, FirePoint.rotation);
@@ -88,35 +130,35 @@ public class TurretBehavior : MonoBehaviour
     {
         if(rotation < 20 || rotation > 340)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            TurretSprite.sprite = sprites[0];
         }
         else if(rotation >= 20 && rotation < 66.6)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            TurretSprite.sprite = sprites[1];
         }
         else if(rotation >= 66.6 && rotation < 113.2)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
+            TurretSprite.sprite = sprites[2];
         }
         else if(rotation >= 113.2 && rotation < 160.0)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[3];
+            TurretSprite.sprite = sprites[3];
         }
         else if(rotation >= 160 && rotation < 200)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[4];
+            TurretSprite.sprite = sprites[4];
         }
         else if(rotation >= 200 && rotation < 246.6)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[5];
+            TurretSprite.sprite = sprites[5];
         }
         else if(rotation >= 246.6 && rotation <293.2)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[6];
+            TurretSprite.sprite = sprites[6];
         }
         else if(rotation >= 293.2 && rotation <= 340)
         {
-            Head.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[7];
+            TurretSprite.sprite = sprites[7];
         }
     }
 
