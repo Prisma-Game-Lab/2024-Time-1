@@ -99,8 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3861ed643d18f4196203ab297f2291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  runSpeed: 10
+  moveSpeed: 7
+  runSpeed: 12
+  currentStamina: 5
+  maxStamina: 5
+  staminaRegenRate: 0.5
+  staminaDecreaseRate: 0.5
+  regenerating: 0
+  regenerated: 1
   rb: {fileID: 7753547351200946022}
 --- !u!50 &7753547351200946022
 Rigidbody2D:

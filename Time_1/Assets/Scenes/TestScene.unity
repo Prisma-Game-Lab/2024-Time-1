@@ -5669,6 +5669,14 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 474818875439633561, guid: f321a9fd261f7754ab22a5cdf7ecec4a, type: 3}
+      propertyPath: maxStamina
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 474818875439633561, guid: f321a9fd261f7754ab22a5cdf7ecec4a, type: 3}
+      propertyPath: currentStamina
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2579001093192163150, guid: f321a9fd261f7754ab22a5cdf7ecec4a, type: 3}
       propertyPath: m_Name
       value: Player
