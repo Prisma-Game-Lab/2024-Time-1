@@ -22,8 +22,8 @@ public class EnemySpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public Transform enemy;
-        public int count;
+        public Transform[] enemies;
+        public int[] counts;
         public float rate;
     }
 
@@ -107,10 +107,13 @@ public class EnemySpawner : MonoBehaviour
         state = SpawnState.SPAWNING;
         wavesCountdownText.text = "Wave: " + (nextWave + 1).ToString(); // Exibe a wave atual
 
-        for (int i = 0; i < _wave.count; i++)
+        for (int i = 0; i < _wave.enemies.Length; i++) // Itera pelos tipos de inimigos
         {
-            SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(1f / _wave.rate);
+            for (int j = 0; j < _wave.counts[i]; j++) // Itera pela quantidade de inimigos de cada tipo
+            {
+                SpawnEnemy(_wave.enemies[i]);
+                yield return new WaitForSeconds(1f / _wave.rate);
+            }
         }
 
         state = SpawnState.WAITING;
