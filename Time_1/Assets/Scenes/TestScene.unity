@@ -3643,6 +3643,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+--- !u!4 &1428346308 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+  m_PrefabInstance: {fileID: 1428346307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1494205296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,20 +3905,25 @@ MonoBehaviour:
   waveCountdown: 0
   waves:
   - name: onda1
-    enemy: {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
-    count: 6
+    enemies:
+    - {fileID: 1428346308}
+    - {fileID: 6159870300846930444, guid: 8a0bb6ad702eba14599007d6786caf58, type: 3}
+    counts: 0600000006000000
     rate: 1
   - name: onda 2
-    enemy: {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
-    count: 12
+    enemies:
+    - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+    counts: 14000000
     rate: 1
   - name: onda 3
-    enemy: {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
-    count: 24
+    enemies:
+    - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+    counts: 28000000
     rate: 1
   - name: onda 4
-    enemy: {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
-    count: 50
+    enemies:
+    - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+    counts: 50000000
     rate: 1
   state: 2
 --- !u!4 &1574543788
