@@ -173,97 +173,6 @@ MonoBehaviour:
   minimap: {fileID: 967155130}
   temporaryMask: {fileID: 21300000, guid: 4ea8ed3f363028c449ddfcd95cc4772e, type: 3}
   eletronicAmount: 0
---- !u!1 &43325375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 43325376}
-  - component: {fileID: 43325379}
-  - component: {fileID: 43325378}
-  - component: {fileID: 43325377}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &43325376
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43325375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1017316109}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40, y: -27}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 1}
---- !u!114 &43325377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43325375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6073b9979d7271741a3c5637eaa13b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  header: Ola
-  content: Teste
-  data: {fileID: 0}
---- !u!114 &43325378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43325375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &43325379
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43325375}
-  m_CullTransparentMesh: 1
 --- !u!1 &56508421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1322,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 92664374}
+--- !u!1 &638843187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1879197800794101374, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
+  m_PrefabInstance: {fileID: 5630832339002118170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &646277737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2545,6 @@ RectTransform:
   - {fileID: 1983680517}
   - {fileID: 1699914049}
   - {fileID: 967155131}
-  - {fileID: 43325376}
   - {fileID: 898263243}
   - {fileID: 829203263}
   m_Father: {fileID: 0}
@@ -3175,7 +3088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   header: Torreta Base
-  content: 'bla bla bla pow pow pow '
+  content: "O doutor detestava qualquer tipo de viol\xEAncia, mas n\xE3o tenho escolha!"
   data: {fileID: 11400000, guid: c5455b347343c2747a9101895439c835, type: 2}
 --- !u!114 &1263034692
 MonoBehaviour:
@@ -4744,6 +4657,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
   m_PrefabInstance: {fileID: 5630832339002118170}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755635706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638843187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6073b9979d7271741a3c5637eaa13b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: "N\xFAcleo"
+  content: "Essa \xE9 a minha casa, ou pelo menos o que sobrou dela...tenho que dar
+    tudo de mim para proteger os estudos e avan\xE7os tecnol\xF3gicos do professor"
+  data: {fileID: 0}
 --- !u!1 &1779102360
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,18 +5910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
-    - target: {fileID: 1931007459225436364, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 3539357765969831821, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1494205297}
-    - target: {fileID: 3539357765969831821, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
-      propertyPath: sceneToGo
-      value: DefeatScene
-      objectReference: {fileID: 0}
     - target: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6039,7 +5960,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1779102364}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1879197800794101374, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1755635706}
   m_SourcePrefab: {fileID: 100100000, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

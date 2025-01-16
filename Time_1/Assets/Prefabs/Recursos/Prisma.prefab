@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7899701609723474283}
   - component: {fileID: 4439914238222877964}
   - component: {fileID: 5768410681764612727}
+  - component: {fileID: -3945020729950100005}
   m_Layer: 0
   m_Name: Prisma
   m_TagString: Untagged
@@ -144,3 +145,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0102298, y: 1.0023167}
   m_EdgeRadius: 0
+--- !u!114 &-3945020729950100005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462557541770670412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6073b9979d7271741a3c5637eaa13b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Prisma
+  content: Sempre fui fascinado pelo poder e beleza dos feixes de luz
+  data: {fileID: 0}
