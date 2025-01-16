@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MetalAmount
   m_EditorClassIdentifier: 
   eletronicAmount: 0
-  metalAmount: 5
+  metalAmount: 8
   prismAmount: 0
   uraniumAmount: 0
