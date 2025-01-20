@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: -1
   m_Sprite: {fileID: 186934883, guid: 0612a5d780b5a4e4d8845d7d036fae67, type: 3}
   m_Color: {r: 0.7826162, g: 0.9716981, b: 0.55460125, a: 1}
   m_FlipX: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 10
-  sceneToGo: 
+  sceneToGo: DefeatScene
 --- !u!50 &3324528360250460877
 Rigidbody2D:
   serializedVersion: 4

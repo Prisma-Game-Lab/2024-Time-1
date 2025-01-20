@@ -23,6 +23,17 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         TooltipSystem.Hide();
     }
 
+    public void OnMouseEnter()
+    {
+        StartCoroutine(waitToShow(delay));
+    }
+
+    public void OnMouseExit()
+    {
+        StopAllCoroutines();
+        TooltipSystem.Hide();
+    }
+
     private IEnumerator waitToShow(float delay)
     {
         yield return new WaitForSeconds(delay);
