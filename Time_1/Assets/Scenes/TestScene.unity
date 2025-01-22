@@ -4270,7 +4270,7 @@ MonoBehaviour:
   cam: {fileID: 1688126465}
   playerZoomSize: 7
   coreZoomSize: 30
-  ZoomSpeed: -0.000009059319
+  ZoomSpeed: 0
   ZoomTime: 0.2
   smoothSpeed: 10
 --- !u!223 &1688126469

@@ -15,8 +15,8 @@ public class CameraFollow : MonoBehaviour
     [Header("Values")]
     public float playerZoomSize;
     public float coreZoomSize;
-    public float ZoomSpeed = 0.25f;
-    public float ZoomTime = 0.2f;
+    public float ZoomSpeed = 0f;
+    public float ZoomTime = .1f;
     public float smoothSpeed = 1.0f;
 
 
@@ -46,6 +46,14 @@ public class CameraFollow : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, playerZoomSize,ref ZoomSpeed, ZoomTime);
+
+            float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollInput != 0)
+            {
+                playerZoomSize -= scrollInput * 10f;
+                playerZoomSize = Mathf.Clamp(playerZoomSize, 1f, 15f);
+                cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, playerZoomSize, ref ZoomSpeed, ZoomTime);
+            }
         }
         else
         {
