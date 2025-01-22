@@ -51,7 +51,7 @@ public class CameraFollow : MonoBehaviour
             if (scrollInput != 0)
             {
                 playerZoomSize -= scrollInput * 10f;
-                playerZoomSize = Mathf.Clamp(playerZoomSize, 1f, 15f);
+                playerZoomSize = Mathf.Clamp(playerZoomSize, 3f, 15f);
                 cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, playerZoomSize, ref ZoomSpeed, ZoomTime);
             }
         }
