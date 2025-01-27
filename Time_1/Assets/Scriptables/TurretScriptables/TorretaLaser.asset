@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 124545c15fbc1b34ca622224542e5a00, type: 3}
-  m_Name: TestTurretData
+  m_Name: TorretaLaser
   m_EditorClassIdentifier: 
   requiredEletronic: 2
   requiredMetal: 2

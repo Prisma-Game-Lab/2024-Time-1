@@ -41,7 +41,8 @@ public class Tooltip : MonoBehaviour
                 newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
                 newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[0];
             }
-            else if (data.requiredMetal > 0)
+
+            if (data.requiredMetal > 0)
             {
                 GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
                 string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceMetal(), data.requiredMetal);
@@ -49,7 +50,8 @@ public class Tooltip : MonoBehaviour
                 newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
                 newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[1];
             }
-            else if (data.requiredPrism > 0)
+            
+            if (data.requiredPrism > 0)
             {
                 GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
                 string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourcePrism(), data.requiredPrism);
@@ -57,7 +59,8 @@ public class Tooltip : MonoBehaviour
                 newSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(slotPrice);
                 newSlot.transform.GetChild(0).GetComponent<Image>().sprite = data.ResourcesIcons[2];
             }
-            else if (data.requiredUranium > 0)
+            
+            if (data.requiredUranium > 0)
             {
                 GameObject newSlot = Instantiate(slotPrefab, resourceSlots.transform);
                 string slotPrice = string.Format("{0} / {1}", BuildModeManager.Instance.getResourceUranium(), data.requiredUranium);

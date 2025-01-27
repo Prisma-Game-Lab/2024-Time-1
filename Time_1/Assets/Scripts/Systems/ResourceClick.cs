@@ -22,6 +22,7 @@ public class ResourceClick : MonoBehaviour, IPointerClickHandler
     {
         if(maxClicks <= 0)
         {
+            TooltipSystem.Hide();
             Destroy(this.gameObject);
         }
     }
