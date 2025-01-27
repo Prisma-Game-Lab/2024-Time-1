@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretBehavior : MonoBehaviour
 {
+    private EnemyHealth targetEnemy;
 
     [Header("Atributos Gerais")]
     public float range = 15f;
@@ -20,6 +21,8 @@ public class TurretBehavior : MonoBehaviour
     [Header("Usar Laser (Torreta Laser)")]
     public bool useLaser = false;
     public LineRenderer lineRenderer;
+    public int damageOverTime = 30;
+    public Transform[] possibleFirePoints;
 
     [Header("Referencias")]
     public Transform Head;
@@ -50,21 +53,25 @@ public class TurretBehavior : MonoBehaviour
             return;
         }
 
-        //LockOnTarget();
-        Vector3 dir = target.position - Head.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - rotationModifier;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        partToRotate.rotation = Quaternion.Slerp(partToRotate.rotation, rotation, Time.deltaTime * rotationSpeed);
-        changeSprite(Mathf.Abs(angle));
+        
 
 
         if (useLaser)
         {
+            Vector3 dir = target.position - Head.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - rotationModifier;
+            changeFirePoint(Mathf.Abs(angle));
             Laser();
         }
         else
         {
-            if(fireCountdown <= 0f)
+            Vector3 dir = target.position - Head.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            partToRotate.rotation = Quaternion.Slerp(partToRotate.rotation, rotation, Time.deltaTime * rotationSpeed);
+            changeSprite(Mathf.Abs(angle));
+
+            if (fireCountdown <= 0f)
             {
                 Shoot();
                 fireCountdown = 1f / fireRate;
@@ -76,14 +83,11 @@ public class TurretBehavior : MonoBehaviour
 
 
 
-    void LockOnTarget()
-    {
-        
-    }
-
-
     void Laser()
     {
+
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+
         if(!lineRenderer.enabled)
             lineRenderer.enabled = true;
         
@@ -119,6 +123,7 @@ public class TurretBehavior : MonoBehaviour
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();
         } 
         else
         {
@@ -126,6 +131,41 @@ public class TurretBehavior : MonoBehaviour
         }
     }
 
+    private void changeFirePoint(float rotation)
+    {
+        if (rotation < 20 || rotation > 340)
+        {
+            FirePoint = possibleFirePoints[0];
+        }
+        else if (rotation >= 20 && rotation < 66.6)
+        {
+            FirePoint = possibleFirePoints[1];
+        }
+        else if (rotation >= 66.6 && rotation < 113.2)
+        {
+            FirePoint = possibleFirePoints[2];
+        }
+        else if (rotation >= 113.2 && rotation < 160.0)
+        {
+            FirePoint = possibleFirePoints[3];
+        }
+        else if (rotation >= 160 && rotation < 200)
+        {
+            FirePoint = possibleFirePoints[4];
+        }
+        else if (rotation >= 200 && rotation < 246.6)
+        {
+            FirePoint = possibleFirePoints[5];
+        }
+        else if (rotation >= 246.6 && rotation < 293.2)
+        {
+            FirePoint = possibleFirePoints[6];
+        }
+        else if (rotation >= 293.2 && rotation <= 340)
+        {
+            FirePoint = possibleFirePoints[7];
+        }
+    }
     private void changeSprite(float rotation)
     {
         if(rotation < 20 || rotation > 340)
