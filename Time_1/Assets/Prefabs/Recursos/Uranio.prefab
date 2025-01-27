@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4439914238222877964}
   - component: {fileID: 5768410681764612727}
   - component: {fileID: 1227328675630073304}
+  - component: {fileID: 7361922020426168580}
   m_Layer: 0
   m_Name: Uranio
   m_TagString: Untagged
@@ -160,3 +161,24 @@ MonoBehaviour:
   header: "Ur\xE2nio"
   content: "T\xE1 na hora de causar um estrago!"
   data: {fileID: 0}
+--- !u!95 &7361922020426168580
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462557541770670412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 068346cc8c1244b418c01549f48f4930, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
