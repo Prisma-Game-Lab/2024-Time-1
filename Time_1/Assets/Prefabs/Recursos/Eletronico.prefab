@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4439914238222877964}
   - component: {fileID: 5768410681764612727}
   - component: {fileID: -6002133863662162500}
+  - component: {fileID: 7527984441448410233}
   m_Layer: 0
   m_Name: Eletronico
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4806a04487f01745a12c7ae969cb782, type: 3}
-  m_Color: {r: 0.47843137, g: 0.681321, b: 0.9137255, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e0138a3b765cf4c4aa1fa4936defbc60, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 0.96}
+    oldSize: {x: 0.9, y: 1.05}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,3 +161,19 @@ MonoBehaviour:
   header: "Lixo Eletr\xF4nico"
   content: Muito ainda pode ser reaproveitado desses materiais
   data: {fileID: 0}
+--- !u!114 &7527984441448410233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462557541770670412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84af69c45cc3dc84dbe863005d299662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 359f8028197c3f4458e16f784138c093, type: 3}
+  - {fileID: 21300000, guid: 2473524c497914440ae00405812302c8, type: 3}
+  - {fileID: 21300000, guid: e0138a3b765cf4c4aa1fa4936defbc60, type: 3}
