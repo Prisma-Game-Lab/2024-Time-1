@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             activeSpeed = runSpeed;
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
+
             if(currentStamina < 0)
             {
                 regenerated = false;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         else //Walking
         { 
             activeSpeed = moveSpeed;
+
             if(currentStamina < maxStamina - 0.01 && regenerated == true)
             {
                 currentStamina += staminaRegenRate * Time.deltaTime;

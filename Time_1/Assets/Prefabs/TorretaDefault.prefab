@@ -56,11 +56,14 @@ MonoBehaviour:
   bullet: {fileID: 5912473736796217790, guid: 5a69d4a8c221ab94f830870491190cf9, type: 3}
   useLaser: 0
   lineRenderer: {fileID: 0}
+  damageOverTime: 30
+  possibleFirePoints: []
   Head: {fileID: 3657906618121660621}
   partToRotate: {fileID: 1078846594213599708}
   target: {fileID: 0}
   FirePoint: {fileID: 448113921690055753}
   TurretSprite: {fileID: 4266068813116952885}
+  shootSound: tiroTorreta
   sprites:
   - {fileID: 21300000, guid: 8ccc85ad725cba94d8fa4a86f729f59c, type: 3}
   - {fileID: 21300000, guid: 27d0c09f6a0a8c04b940f425153899be, type: 3}

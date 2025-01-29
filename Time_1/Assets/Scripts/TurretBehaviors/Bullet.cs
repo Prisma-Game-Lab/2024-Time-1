@@ -7,6 +7,20 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     public float damage = 25f;
 
+    public string impactSound;
+
+    // Caching
+    AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
+    }
+
     public void Seek(Transform _target) //Avisa quem a bala vai seguir
     {
         target = _target;

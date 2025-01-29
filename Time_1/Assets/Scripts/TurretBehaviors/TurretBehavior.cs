@@ -31,6 +31,9 @@ public class TurretBehavior : MonoBehaviour
     public Transform FirePoint;
     public SpriteRenderer TurretSprite;
 
+    [Header("Audio")]
+    AudioManager audioManager;
+    public string shootSound;
 
     [Header("Sprites")]
     public Sprite[] sprites;
@@ -38,6 +41,11 @@ public class TurretBehavior : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
     }
 
     private void Update()
@@ -102,6 +110,7 @@ public class TurretBehavior : MonoBehaviour
 
         if (bullettemp != null)
             bullettemp.Seek(target);
+        audioManager.PlaySound(shootSound); // Som do tiro da torreta
     }
     void UpdateTarget()
     {
