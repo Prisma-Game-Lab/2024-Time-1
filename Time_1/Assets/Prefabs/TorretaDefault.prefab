@@ -64,6 +64,7 @@ MonoBehaviour:
   FirePoint: {fileID: 448113921690055753}
   TurretSprite: {fileID: 4266068813116952885}
   positionSound: pos_torre
+  shootSound: tiroTorreta
   sprites:
   - {fileID: 21300000, guid: 8ccc85ad725cba94d8fa4a86f729f59c, type: 3}
   - {fileID: 21300000, guid: 27d0c09f6a0a8c04b940f425153899be, type: 3}

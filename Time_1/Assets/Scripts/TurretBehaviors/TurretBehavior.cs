@@ -34,6 +34,7 @@ public class TurretBehavior : MonoBehaviour
     [Header("Audio")]
     AudioManager audioManager;
     public string positionSound;
+    public string shootSound;
 
     [Header("Sprites")]
     public Sprite[] sprites;
@@ -111,6 +112,7 @@ public class TurretBehavior : MonoBehaviour
 
         if (bullettemp != null)
             bullettemp.Seek(target);
+        audioManager.PlaySound(shootSound);
     }
     void UpdateTarget()
     {
