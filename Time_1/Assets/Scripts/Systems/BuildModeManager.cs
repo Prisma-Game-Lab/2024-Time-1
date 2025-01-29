@@ -12,13 +12,10 @@ public class BuildModeManager : MonoBehaviour
     public GameObject minimap;
     public Sprite temporaryMask;
 
-
-
-    [SerializeField]
-    private float eletronicAmount;
-    private float metalAmount;
-    private float prismAmount;
-    private float uraniumAmount;
+    [SerializeField] private float eletronicAmount;
+    [SerializeField] private float metalAmount;
+    [SerializeField] private float prismAmount;
+    [SerializeField] private float uraniumAmount;
 
     private bool isTurretSelected;
     private bool BuildMode; //Flag para verificar se está no modo de construcao
@@ -27,6 +24,9 @@ public class BuildModeManager : MonoBehaviour
     private Vector3 mouseposition;
     private bool canPlaceTurret;
     private bool canBuyTurret;
+
+    private bool canUpgradeTurret;
+    private bool canUpgradeLaser;
 
     private void Awake()
     {
@@ -52,12 +52,13 @@ public class BuildModeManager : MonoBehaviour
         selectedTurret = null;
         canPlaceTurret = true;
         canBuyTurret = false;
+        canUpgradeTurret = false;
+        canUpgradeLaser = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ResourcePanel.text = resourceX.ToString();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -76,6 +77,8 @@ public class BuildModeManager : MonoBehaviour
                 isTurretSelected = false;
                 selectedTurretCosts = null;
                 selectedTurret = null;
+                canUpgradeTurret = false;
+                canUpgradeLaser = false;
             }
         }
 
@@ -87,14 +90,19 @@ public class BuildModeManager : MonoBehaviour
         else
             canBuyTurret = false;
 
-        if (Input.GetMouseButtonDown(1) && isTurretSelected) //Cancela a construcao 
+        if (Input.GetMouseButtonDown(1) && isTurretSelected || Input.GetMouseButtonDown(1) && canUpgradeLaser || 
+            Input.GetMouseButtonDown(1) && canUpgradeTurret) //Cancela a construcao 
         {
             isTurretSelected = false;
             mouseMask.gameObject.SetActive(false);
             selectedTurretCosts = null;
             selectedTurret = null;
+            canUpgradeTurret = false;
+            canUpgradeLaser = false;
         }
-            
+
+        if (canUpgradeLaser || canUpgradeTurret)
+            return;
 
         if(Input.GetMouseButtonDown(0) && isTurretSelected) //Tenta colocar torreta
         {
@@ -184,18 +192,38 @@ public class BuildModeManager : MonoBehaviour
 
     public void setSelectedTurret(GameObject turret, TurretData data)
     {
-        Debug.Log("SelectedTurret");
         selectedTurret = turret;
         selectedTurretCosts = data;
+        canUpgradeLaser = false;
+        canUpgradeTurret = false;
         isTurretSelected = true;
         mouseMask.gameObject.SetActive(true);
         
-        //mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = turret.gameObject.GetComponent<SpriteRenderer>().sprite;
         //Retornar o sprite da turret selecionada quando tiver o sprite todo
         mouseMask.gameObject.GetComponent<SpriteRenderer>().sprite = temporaryMask;
 
 
         mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+    }
+
+    public void enableUpgradeDefault(bool flag)
+    {
+        canUpgradeTurret = flag;
+    }
+
+    public void enableUpgradeLaser(bool flag)
+    {
+        canUpgradeLaser = flag;
+    }
+
+    public bool _canUpgradeDefault()
+    {
+        return canUpgradeTurret;
+    }
+
+    public bool _canUpgradeLaser()
+    {
+        return canUpgradeLaser;
     }
 
     public void CanPlaceTurret(bool b)

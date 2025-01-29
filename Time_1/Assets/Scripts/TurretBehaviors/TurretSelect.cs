@@ -8,7 +8,6 @@ public class TurretSelect : MonoBehaviour
     {
         if (BuildModeManager.Instance.canBuy(data))
         {
-            Debug.Log("CanBuy");
             BuildModeManager.Instance.setSelectedTurret(turret, data);
         }
     }
