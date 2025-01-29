@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3849435871816807216}
   - component: {fileID: 5123276494032658485}
   m_Layer: 0
-  m_Name: TorretaDefault
+  m_Name: TorretaDefault V2
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,6 @@ MonoBehaviour:
   enemyTag: Enemy
   rotationModifier: 180
   rotationSpeed: 20
-  canUpgrade: 1
   fireRate: 1
   bullet: {fileID: 5912473736796217790, guid: 5a69d4a8c221ab94f830870491190cf9, type: 3}
   useLaser: 0
@@ -64,8 +63,6 @@ MonoBehaviour:
   target: {fileID: 0}
   FirePoint: {fileID: 448113921690055753}
   TurretSprite: {fileID: 4266068813116952885}
-  TurretUpgraded: {fileID: 355097924483242230, guid: db467e0adc4f6a9429fba157c5ef6e73, type: 3}
-  UpgradeValues: {fileID: 11400000, guid: b7b7b12bf7745c34cb4105b23e97dedc, type: 2}
   positionSound: pos_torre
   shootSound: tiroTorreta
   sprites:

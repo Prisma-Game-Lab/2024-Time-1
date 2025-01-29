@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretBehavior : MonoBehaviour
@@ -11,6 +9,7 @@ public class TurretBehavior : MonoBehaviour
     public string enemyTag = "Enemy";
     public float rotationModifier;
     public float rotationSpeed;
+    public bool canUpgrade;
 
     [Header("Usar Balas (Torreta Default)")]
     public float fireRate = 1f;
@@ -30,6 +29,8 @@ public class TurretBehavior : MonoBehaviour
     public Transform target;
     public Transform FirePoint;
     public SpriteRenderer TurretSprite;
+    public GameObject TurretUpgraded;
+    public TurretData UpgradeValues;
 
     [Header("Audio")]
     AudioManager audioManager;
@@ -213,6 +214,41 @@ public class TurretBehavior : MonoBehaviour
         }
     }
 
+    public void Upgrade()
+    {
+        Instantiate(TurretUpgraded, this.transform.position, this.transform.rotation);
+        Destroy(gameObject);
+    }
+
+    private void OnMouseDown()
+    {
+        if(useLaser && canUpgrade)
+        {
+            if(BuildModeManager.Instance._canUpgradeLaser())
+            {
+                BuildModeManager.Instance.discountAmounts(UpgradeValues);
+                if (!BuildModeManager.Instance.canBuy(UpgradeValues))
+                {
+                    BuildModeManager.Instance.enableUpgradeLaser(false);
+                }
+
+                Upgrade();
+            }
+        }
+        else if(!useLaser && canUpgrade)
+        {
+            if (BuildModeManager.Instance._canUpgradeDefault())
+            {
+                BuildModeManager.Instance.discountAmounts(UpgradeValues);
+                if (!BuildModeManager.Instance.canBuy(UpgradeValues))
+                {
+                    BuildModeManager.Instance.enableUpgradeDefault(false);
+                }
+
+                Upgrade();
+            }
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
