@@ -24,6 +24,7 @@ public class BuildModeManager : MonoBehaviour
     private Vector3 mouseposition;
     private bool canPlaceTurret;
     private bool canBuyTurret;
+
     private bool canUpgradeTurret;
     private bool canUpgradeLaser;
 
