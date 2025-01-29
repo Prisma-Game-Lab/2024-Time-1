@@ -2471,12 +2471,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direcoes:
-  - Nome: SetaNorte
-    Seta: {fileID: 79825367}
   - Nome: SetaOeste
     Seta: {fileID: 1255700208}
   - Nome: SetaLeste
     Seta: {fileID: 359585505}
+  - Nome: SetaNorte
+    Seta: {fileID: 79825367}
   - Nome: SetaSul
     Seta: {fileID: 2121920529}
   CorAtiva: {r: 1, g: 0.1, b: 0.1, a: 1}
