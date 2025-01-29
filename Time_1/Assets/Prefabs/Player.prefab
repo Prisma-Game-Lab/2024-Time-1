@@ -205,13 +205,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
-  runSpeed: 15
+  runSpeed: 13
   currentStamina: 5
   maxStamina: 5
-  staminaRegenRate: 0.5
+  staminaRegenRate: 0.8
   staminaDecreaseRate: 0.5
-  regenerating: 0
   regenerated: 1
+  TimeToStartRegen: 1
+  StaminaBar: {fileID: 0}
   rb: {fileID: 7753547351200946022}
 --- !u!50 &7753547351200946022
 Rigidbody2D:

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TorretaLaser
   m_EditorClassIdentifier: 
   requiredEletronic: 2
-  requiredMetal: 2
-  requiredPrism: 0
+  requiredMetal: 4
+  requiredPrism: 3
   requiredUranium: 0
   ResourcesIcons:
   - {fileID: 21300000, guid: d4806a04487f01745a12c7ae969cb782, type: 3}

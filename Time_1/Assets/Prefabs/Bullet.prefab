@@ -100,5 +100,5 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 70
   impactEffect: {fileID: 8624623419028903612, guid: ec39abcfa9d8fe749aac7c3ab25e7dfc, type: 3}
-  damage: 15
-  shootSound: tiroTorreta
+  damage: 12
+  impactSound: 
