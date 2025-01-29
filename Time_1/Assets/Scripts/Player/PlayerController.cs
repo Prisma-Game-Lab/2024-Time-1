@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
                 currentStamina += staminaRegenRate * Time.deltaTime;
             }
         }
-
     }
 
     private IEnumerator RechargeStamina()
