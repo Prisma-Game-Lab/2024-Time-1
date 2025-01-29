@@ -3790,13 +3790,34 @@ MonoBehaviour:
     - {fileID: 6159870300846930444, guid: 8a0bb6ad702eba14599007d6786caf58, type: 3}
     counts: 0500000005000000050000000500000005000000050000000500000005000000
     rate: 1
-  - name: onda 11
+  - name: onda 12
     enemies:
     - {fileID: 6159870300846930444, guid: cfe8e9ef74bc19d4da5405f92eb64df8, type: 3}
     - {fileID: 6159870300846930444, guid: 8a0bb6ad702eba14599007d6786caf58, type: 3}
     - {fileID: 6159870300846930444, guid: 54fd9a47eddcd02469b20337176a3f1c, type: 3}
     - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
     counts: 140000000a0000000500000001000000
+    rate: 1
+  - name: onda 13
+    enemies:
+    - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+    - {fileID: 6159870300846930444, guid: cfe8e9ef74bc19d4da5405f92eb64df8, type: 3}
+    - {fileID: 6159870300846930444, guid: 8a0bb6ad702eba14599007d6786caf58, type: 3}
+    - {fileID: 6159870300846930444, guid: 54fd9a47eddcd02469b20337176a3f1c, type: 3}
+    counts: 190000000f0000000a00000005000000
+    rate: 1
+  - name: onda 14
+    enemies:
+    - {fileID: 6159870300846930444, guid: bba0ea8157cc4434e964deae600a4d0f, type: 3}
+    - {fileID: 6159870300846930444, guid: cfe8e9ef74bc19d4da5405f92eb64df8, type: 3}
+    - {fileID: 6159870300846930444, guid: 8a0bb6ad702eba14599007d6786caf58, type: 3}
+    - {fileID: 6159870300846930444, guid: 54fd9a47eddcd02469b20337176a3f1c, type: 3}
+    counts: 140000000a0000000500000001000000
+    rate: 1
+  - name: onda 15
+    enemies:
+    - {fileID: 6159870300846930444, guid: 3ff15c92a336bd547af558820634b02d, type: 3}
+    counts: 01000000
     rate: 1
   state: 2
 --- !u!4 &1574543788
@@ -4208,7 +4229,7 @@ MonoBehaviour:
   playerOffset: {x: 0, y: 0, z: -5}
   cam: {fileID: 1688126465}
   playerZoomSize: 7
-  coreZoomSize: 30
+  coreZoomSize: 40
   ZoomSpeed: 0
   ZoomTime: 0.2
   smoothSpeed: 10
@@ -6040,6 +6061,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1494205297}
+    - target: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

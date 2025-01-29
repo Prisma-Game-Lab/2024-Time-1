@@ -204,11 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3861ed643d18f4196203ab297f2291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
-  runSpeed: 13
-  currentStamina: 5
-  maxStamina: 5
-  staminaRegenRate: 0.8
+  moveSpeed: 8
+  runSpeed: 14
+  currentStamina: 4
+  maxStamina: 4
+  staminaRegenRate: 1.25
   staminaDecreaseRate: 0.5
   regenerated: 1
   TimeToStartRegen: 1
