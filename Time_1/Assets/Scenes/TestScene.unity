@@ -6097,6 +6097,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1494205297}
+    - target: {fileID: 3539357765969831821, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
+      propertyPath: damageSound
+      value: danoNucleo
+      objectReference: {fileID: 0}
     - target: {fileID: 7541585332498828008, guid: ea3b5337d7431e143916e5c6ecde2824, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5

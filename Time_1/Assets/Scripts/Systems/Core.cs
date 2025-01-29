@@ -10,11 +10,20 @@ public class Core : MonoBehaviour
     public float maxHealth = 10.0f;
     public string sceneToGo;
 
+    [Header("Audio")]
+    AudioManager audioManager;
+    public string damageSound;
+
     private float currentHealth;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
     }
     // Update is called once per frame
     void Update()
@@ -27,6 +36,7 @@ public class Core : MonoBehaviour
 
     public void damageCore(float n)
     {
+        audioManager.PlaySound(damageSound);
         currentHealth -= n;
         healthBar.fillAmount = currentHealth/maxHealth;
     }
