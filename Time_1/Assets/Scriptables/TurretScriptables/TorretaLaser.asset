@@ -17,7 +17,7 @@ MonoBehaviour:
   requiredPrism: 3
   requiredUranium: 0
   ResourcesIcons:
-  - {fileID: 21300000, guid: d4806a04487f01745a12c7ae969cb782, type: 3}
-  - {fileID: 21300000, guid: 7e152961e42e9bb4ca53b6eb596518b6, type: 3}
+  - {fileID: 21300000, guid: e0138a3b765cf4c4aa1fa4936defbc60, type: 3}
   - {fileID: 21300000, guid: 65092bcf48863ca488f91bfef6fb7745, type: 3}
-  - {fileID: 21300000, guid: 65092bcf48863ca488f91bfef6fb7745, type: 3}
+  - {fileID: 21300000, guid: 31cf80885059841409b77a7dc9b9189a, type: 3}
+  - {fileID: 21300000, guid: 635e1b733b0e9e241a7ec41293cb2556, type: 3}
