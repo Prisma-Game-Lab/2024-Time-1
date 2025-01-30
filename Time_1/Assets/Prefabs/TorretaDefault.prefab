@@ -52,7 +52,7 @@ MonoBehaviour:
   rotationModifier: 180
   rotationSpeed: 20
   canUpgrade: 1
-  fireRate: 1
+  fireRate: 2
   bullet: {fileID: 5912473736796217790, guid: 5a69d4a8c221ab94f830870491190cf9, type: 3}
   useLaser: 0
   lineRenderer: {fileID: 0}

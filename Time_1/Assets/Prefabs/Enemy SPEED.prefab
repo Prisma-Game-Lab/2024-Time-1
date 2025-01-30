@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 6
+  speed: 12
   damage: 2
 --- !u!114 &7872063501931176340
 MonoBehaviour:

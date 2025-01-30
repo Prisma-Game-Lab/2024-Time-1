@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124545c15fbc1b34ca622224542e5a00, type: 3}
   m_Name: TorretaBase
   m_EditorClassIdentifier: 
-  requiredEletronic: 2
-  requiredMetal: 2
+  requiredEletronic: 4
+  requiredMetal: 4
   requiredPrism: 0
   requiredUranium: 0
   ResourcesIcons:

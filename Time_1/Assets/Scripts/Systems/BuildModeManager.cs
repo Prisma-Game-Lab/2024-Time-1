@@ -79,6 +79,7 @@ public class BuildModeManager : MonoBehaviour
                 selectedTurret = null;
                 canUpgradeTurret = false;
                 canUpgradeLaser = false;
+                TooltipSystem.Hide();
             }
         }
 

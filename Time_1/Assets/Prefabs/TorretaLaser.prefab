@@ -88,7 +88,7 @@ MonoBehaviour:
   bullet: {fileID: 5912473736796217790, guid: 5a69d4a8c221ab94f830870491190cf9, type: 3}
   useLaser: 1
   lineRenderer: {fileID: -5165176143003163105}
-  damageOverTime: 30
+  damageOverTime: 40
   possibleFirePoints:
   - {fileID: 6411672786834184693}
   - {fileID: 1354921544650786092}
