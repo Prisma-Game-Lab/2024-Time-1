@@ -82,7 +82,7 @@ MonoBehaviour:
     loop: 0
   - name: tiroTorreta
     clip: {fileID: 8300000, guid: 9888e7a47588fe047bbde27d5e11f76f, type: 3}
-    volume: 0.8
+    volume: 0.361
     pitch: 1
     randomVolume: 0
     randomPitch: 0
