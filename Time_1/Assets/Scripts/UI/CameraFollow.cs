@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     public Transform playerTarget;
     public Vector3 coreOffset;
     public Vector3 playerOffset;
+    public SpriteRenderer playerSprite;
+    public Canvas HealthBarSprite;
     [SerializeField] private Camera cam;
 
     [Header("Values")]
@@ -41,7 +42,8 @@ public class CameraFollow : MonoBehaviour
     {
         if(FLAG)
         {
-            player.SetActive(true);
+            playerSprite.enabled = true;
+            HealthBarSprite.enabled = true;
             Vector3 desiredPosition = playerTarget.position + playerOffset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
@@ -61,7 +63,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, coreZoomSize, ref ZoomSpeed, ZoomTime);
-            player.SetActive(false);
+            playerSprite.enabled = false;
+            HealthBarSprite.enabled = false;
         }
     }
 

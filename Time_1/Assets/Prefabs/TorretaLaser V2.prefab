@@ -83,11 +83,12 @@ MonoBehaviour:
   enemyTag: Enemy
   rotationModifier: 180
   rotationSpeed: 20
+  canUpgrade: 0
   fireRate: 1
   bullet: {fileID: 5912473736796217790, guid: 5a69d4a8c221ab94f830870491190cf9, type: 3}
   useLaser: 1
   lineRenderer: {fileID: -5165176143003163105}
-  damageOverTime: 30
+  damageOverTime: 65
   possibleFirePoints:
   - {fileID: 6411672786834184693}
   - {fileID: 1354921544650786092}
@@ -102,6 +103,10 @@ MonoBehaviour:
   target: {fileID: 0}
   FirePoint: {fileID: 6411672786834184693}
   TurretSprite: {fileID: 4266068813116952885}
+  TurretUpgraded: {fileID: 0}
+  UpgradeValues: {fileID: 0}
+  positionSound: 
+  shootSound: 
   sprites:
   - {fileID: 21300000, guid: 8ccc85ad725cba94d8fa4a86f729f59c, type: 3}
   - {fileID: 21300000, guid: 27d0c09f6a0a8c04b940f425153899be, type: 3}
@@ -341,7 +346,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 79245b3e3ecf06547b75cda810d28f60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

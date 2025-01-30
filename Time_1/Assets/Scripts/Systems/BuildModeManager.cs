@@ -79,6 +79,7 @@ public class BuildModeManager : MonoBehaviour
                 selectedTurret = null;
                 canUpgradeTurret = false;
                 canUpgradeLaser = false;
+                TooltipSystem.Hide();
             }
         }
 
@@ -233,5 +234,10 @@ public class BuildModeManager : MonoBehaviour
             mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
         else
             mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.2f, 0.2f, 0.8f);
+    }
+
+    public bool isBuildMode()
+    {
+        return BuildMode;
     }
 }
