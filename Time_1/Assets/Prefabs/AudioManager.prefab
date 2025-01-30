@@ -75,7 +75,7 @@ MonoBehaviour:
     loop: 0
   - name: pos_torre
     clip: {fileID: 8300000, guid: 656387562a9f0ed42bfca584f43e1eda, type: 3}
-    volume: 0.6
+    volume: 0.7
     pitch: 1
     randomVolume: 0
     randomPitch: 0
@@ -83,6 +83,62 @@ MonoBehaviour:
   - name: tiroTorreta
     clip: {fileID: 8300000, guid: 9888e7a47588fe047bbde27d5e11f76f, type: 3}
     volume: 0.361
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: openBuildMode
+    clip: {fileID: 8300000, guid: ec191705f726c164b9243cca31eff1bf, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0.031
+    randomPitch: 0.052
+    loop: 0
+  - name: buttonHover
+    clip: {fileID: 8300000, guid: 55abf2b655d47ba41a358ceeb963481d, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: buttonPress
+    clip: {fileID: 8300000, guid: e5837ced2cf556e438d2ece2be35a110, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: startGame
+    clip: {fileID: 8300000, guid: 4609d03093f8fee47b8ecdd9a37b4957, type: 3}
+    volume: 0.4
+    pitch: 1
+    randomVolume: 0.061
+    randomPitch: 0.037
+    loop: 0
+  - name: upgradeTorre
+    clip: {fileID: 8300000, guid: 5a41f84f50c92804f988f67799eb9a7f, type: 3}
+    volume: 0.6
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: clickRecurso
+    clip: {fileID: 8300000, guid: 8a5a41834bdb3da4883f6b5f78f57efe, type: 3}
+    volume: 1
+    pitch: 0.7
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: enemyDeath
+    clip: {fileID: 8300000, guid: ac33279f04cd03e479217d84709ef84e, type: 3}
+    volume: 0.4
+    pitch: 1
+    randomVolume: 0.03
+    randomPitch: 0.126
+    loop: 0
+  - name: gameOver
+    clip: {fileID: 8300000, guid: e59f298c76b5c254c847170cde601450, type: 3}
+    volume: 0.7
     pitch: 1
     randomVolume: 0
     randomPitch: 0

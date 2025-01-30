@@ -901,43 +901,7 @@ PrefabInstance:
       value: Theme
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 55abf2b655d47ba41a358ceeb963481d, type: 3}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].name
-      value: buttonHover
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e5837ced2cf556e438d2ece2be35a110, type: 3}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].name
-      value: buttonPress
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4609d03093f8fee47b8ecdd9a37b4957, type: 3}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].name
-      value: startGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.data[6].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
@@ -947,42 +911,6 @@ PrefabInstance:
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.data[6].volume
       value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].randomPitch
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].randomPitch
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].randomPitch
-      value: 0.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[7].randomVolume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[8].randomVolume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
-      propertyPath: sounds.Array.data[9].randomVolume
-      value: 0.061
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
