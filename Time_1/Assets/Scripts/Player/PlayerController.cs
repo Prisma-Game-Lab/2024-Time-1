@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool regenerated = true;
     [SerializeField] private float TimeToStartRegen = 1f;
 
+    public Animator animator;
+
     public Image StaminaBar;
 
     private float activeSpeed = 0f;
@@ -21,10 +23,11 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    Vector2 movement;
+    [SerializeField] Vector2 movement;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();    
         activeSpeed = moveSpeed;
         currentStamina = maxStamina;
         inicialBarColor = StaminaBar.color;
@@ -39,7 +42,14 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if(currentStamina < 0) currentStamina = 0;
+        if(movement.x == 0 && movement.y == 0)
+        {
+            animator.SetBool("Walking", false);
+            animator.SetBool("Running", false);
+        }
+
+        if (currentStamina < 0) currentStamina = 0;
+        
         StaminaBar.fillAmount = currentStamina / maxStamina;
 
 
@@ -47,8 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             activeSpeed = runSpeed;
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
+            animator.SetBool("Walking", false);
+            animator.SetBool("Running", true);
 
-            if(currentStamina < 0)
+            if (currentStamina < 0)
             {
                 regenerated = false;
                 StaminaBar.color = Color.red;
@@ -59,7 +71,13 @@ public class PlayerController : MonoBehaviour
         { 
             activeSpeed = moveSpeed;
 
-            if(currentStamina < maxStamina - 0.01 && regenerated == true)
+            if (movement.x != 0 || movement.y != 0)
+            {
+                animator.SetBool("Walking", true);
+                animator.SetBool("Running", false);
+            }
+
+            if (currentStamina < maxStamina - 0.01 && regenerated == true)
             {
                 currentStamina += staminaRegenRate * Time.deltaTime;
             }
