@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 6d3e84cff76cd7b468409d60bd14c145, type: 2}
+  clickSound: clickRecurso
 --- !u!61 &5768410681764612727
 BoxCollider2D:
   m_ObjectHideFlags: 0
