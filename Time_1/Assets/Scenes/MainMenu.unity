@@ -743,6 +743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399938084}
   - component: {fileID: 399938085}
+  - component: {fileID: 399938086}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -798,6 +799,35 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &399938086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399938083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1357437645}
+          m_TargetAssemblyTypeName: ButtonMenuSound, Assembly-CSharp
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &437599907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,7 +882,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.size
-      value: 7
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a5a41834bdb3da4883f6b5f78f57efe, type: 3}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: clickRecurso
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.data[6].clip
@@ -863,12 +901,88 @@ PrefabInstance:
       value: Theme
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 55abf2b655d47ba41a358ceeb963481d, type: 3}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].name
+      value: buttonHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e5837ced2cf556e438d2ece2be35a110, type: 3}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].name
+      value: buttonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4609d03093f8fee47b8ecdd9a37b4957, type: 3}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].name
+      value: startGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.data[6].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
       propertyPath: sounds.Array.data[6].volume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].randomPitch
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].randomPitch
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].randomPitch
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[7].randomVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[8].randomVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970127454860432775, guid: c207d02cbac76b9488983fbb9ac7fe73, type: 3}
+      propertyPath: sounds.Array.data[9].randomVolume
+      value: 0.061
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1049,6 +1163,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TestScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1357437645}
+        m_TargetAssemblyTypeName: ButtonMenuSound, Assembly-CSharp
+        m_MethodName: PlayStartGameSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: startGameSound
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 697594202}
+        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
+        m_MethodName: start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &697594204
@@ -1768,6 +1906,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357322577}
   m_CullTransparentMesh: 1
+--- !u!1 &1357437644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357437646}
+  - component: {fileID: 1357437645}
+  m_Layer: 0
+  m_Name: menuButtonSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357437645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357437644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45378b924dfc874a96985f5616053bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverOverSound: buttonHover
+  clickSound: buttonPress
+  startGameSound: startGame
+--- !u!4 &1357437646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357437644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 942.87384, y: 513.2579, z: -6.112322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601261651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2195,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1357437645}
+        m_TargetAssemblyTypeName: ButtonMenuSound, Assembly-CSharp
+        m_MethodName: OnMouseClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1731118625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,6 +2340,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1357437645}
+        m_TargetAssemblyTypeName: ButtonMenuSound, Assembly-CSharp
+        m_MethodName: OnMouseClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1812080249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,3 +2398,4 @@ SceneRoots:
   - {fileID: 1111611917}
   - {fileID: 682350369}
   - {fileID: 437599907}
+  - {fileID: 1357437646}
