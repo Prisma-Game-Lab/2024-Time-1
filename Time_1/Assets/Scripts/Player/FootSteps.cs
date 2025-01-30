@@ -21,33 +21,18 @@ public class FootSteps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Verifica se o jogador está se movendo (W, A, S, D pressionados)
-        bool moving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
-
-        // Verifica se o jogador está correndo (Shift pressionado)
-        bool running = Input.GetKey(KeyCode.LeftShift);
-
-        // Se o jogador está se movendo
-        if (moving)
+        if(Input.GetKeyDown("W") || Input.GetKeyDown("A") || Input.GetKeyDown("S") || Input.GetKeyDown("D"))
         {
-            // Se estiver correndo, toca o som de corrida e para o som de caminhada
-            if (running)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 audioManager.PlaySound(runSound);
-                audioManager.StopSound(walkSound);
             }
-            // Se não estiver correndo, toca o som de caminhada e para o som de corrida
             else
             {
-                audioManager.StopSound(runSound);
                 audioManager.PlaySound(walkSound);
             }
         }
-        // Se o jogador não está se movendo
-        else
-        {
-            audioManager.StopSound(walkSound);
-            audioManager.StopSound(runSound);
-        }
+        audioManager.StopSound(walkSound);
+        audioManager.StopSound(runSound);
     }
 }
