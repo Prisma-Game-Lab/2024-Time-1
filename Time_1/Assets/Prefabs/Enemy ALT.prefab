@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f59ab48db7ab344aa643c2dfa89ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: enemyDeath
   health: 160
 --- !u!61 &4694697704660274686
 BoxCollider2D:

@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    AudioManager audioManager;
+    public string deathSound;
+
     public float health = 100f;
+
+    public void Start()
+    {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
+    }
 
     private void Update()
     {
@@ -22,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
-        
+        audioManager.PlaySound(deathSound);
         Destroy(gameObject); // Destroi o inimigo
     }
 }

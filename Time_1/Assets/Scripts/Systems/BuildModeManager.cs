@@ -12,6 +12,11 @@ public class BuildModeManager : MonoBehaviour
     public GameObject minimap;
     public Sprite temporaryMask;
 
+    [Header("Audio")]
+    AudioManager audioManager;
+    public string buildModeSound;
+    public string quitBuildModeSound;
+
     [SerializeField] private float eletronicAmount;
     [SerializeField] private float metalAmount;
     [SerializeField] private float prismAmount;
@@ -54,6 +59,12 @@ public class BuildModeManager : MonoBehaviour
         canBuyTurret = false;
         canUpgradeTurret = false;
         canUpgradeLaser = false;
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
     }
 
     // Update is called once per frame
@@ -68,6 +79,7 @@ public class BuildModeManager : MonoBehaviour
             {
                 turretBuyPanel.SetActive(true); //Ativa opcao de compra
                 minimap.SetActive(false);
+                audioManager.PlaySound(buildModeSound);
             }
             else
             {
@@ -80,6 +92,7 @@ public class BuildModeManager : MonoBehaviour
                 canUpgradeTurret = false;
                 canUpgradeLaser = false;
                 TooltipSystem.Hide();
+                audioManager.PlaySound(quitBuildModeSound);
             }
         }
 

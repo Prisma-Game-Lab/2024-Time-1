@@ -7,6 +7,9 @@ public class ResourceClick : MonoBehaviour, IPointerClickHandler
     public ResourceData data;
     private Animator _animator;
 
+    AudioManager audioManager;
+    public string clickSound;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -19,6 +22,12 @@ public class ResourceClick : MonoBehaviour, IPointerClickHandler
             maxClicks = data.prismAmount;
         if (data.uraniumAmount > 0)
             maxClicks = data.uraniumAmount;
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("No AudioManager found in scene.");
+        }
     }
 
     private void FixedUpdate()
@@ -35,5 +44,6 @@ public class ResourceClick : MonoBehaviour, IPointerClickHandler
         maxClicks--;
         _animator.SetTrigger("Click");
         BuildModeManager.Instance.increaseResources(data);
+        audioManager.PlaySound(clickSound);
     }
 }

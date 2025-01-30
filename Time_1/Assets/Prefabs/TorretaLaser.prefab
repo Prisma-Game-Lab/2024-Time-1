@@ -105,7 +105,7 @@ MonoBehaviour:
   TurretSprite: {fileID: 4266068813116952885}
   TurretUpgraded: {fileID: 355097924483242230, guid: ce667c0c2e9ba97478d4f74a4669d136, type: 3}
   UpgradeValues: {fileID: 11400000, guid: 34e44e67db6a2c74bac1dcca5908845e, type: 2}
-  positionSound: 
+  positionSound: posTorretaLaser
   shootSound: 
   sprites:
   - {fileID: 21300000, guid: 8ccc85ad725cba94d8fa4a86f729f59c, type: 3}
