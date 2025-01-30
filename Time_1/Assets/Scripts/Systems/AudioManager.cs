@@ -70,6 +70,8 @@ public class AudioManager : MonoBehaviour
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
         }
+
+        PlaySound("Theme");
     }
 
     public void PlaySound(string _name)
