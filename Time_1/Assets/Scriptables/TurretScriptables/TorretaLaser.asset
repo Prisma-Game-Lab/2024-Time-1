@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124545c15fbc1b34ca622224542e5a00, type: 3}
   m_Name: TorretaLaser
   m_EditorClassIdentifier: 
-  requiredEletronic: 2
-  requiredMetal: 4
+  requiredEletronic: 5
+  requiredMetal: 5
   requiredPrism: 3
   requiredUranium: 0
   ResourcesIcons:
