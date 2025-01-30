@@ -235,4 +235,9 @@ public class BuildModeManager : MonoBehaviour
         else
             mouseMask.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.2f, 0.2f, 0.8f);
     }
+
+    public bool isBuildMode()
+    {
+        return BuildMode;
+    }
 }
